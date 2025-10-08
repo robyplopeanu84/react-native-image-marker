@@ -162,13 +162,11 @@ class Utils {
     fun handleDynamicToString(d: Dynamic?): String {
       return if (d == null) "0"
       else
-          when (d.type) {
-            ReadableType.String -> d.asString()
-            ReadableType.Number -> d.asDouble().toString()
-            else -> {
-              "0"
-            }
-          }
+       when (d.type) {
+          ReadableType.String -> d.asString() ?: "0"
+          ReadableType.Number -> d.asDouble().toString()
+          else -> "0"
+        }
     }
   }
 
